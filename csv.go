@@ -2,7 +2,6 @@ package main
 
 import (
     "encoding/csv"
-    "fmt"
     "log"
     "os"
 )
@@ -18,7 +17,6 @@ func readCsvFile(filePath string) [][]string {
     records, err := csvReader.ReadAll()
     if err != nil {
         log.Fatal("Unable to parse file as CSV for " + filePath, err)
-		return ""
     }
 
     return records
