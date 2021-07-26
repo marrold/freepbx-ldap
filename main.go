@@ -11,7 +11,6 @@ import (
 )
 
 var csv_records []
-csv_records = make([][]string , 1)]
 
 func main() {
 	sqlserver, sqluser, sqlpass, sqldb := getCreds()
