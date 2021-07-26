@@ -10,7 +10,7 @@ import (
 	ldap "github.com/vjeantet/ldapserver"
 )
 
-csv_records := make([][]string , 1)
+var csv_records []string
 
 func main() {
 	sqlserver, sqluser, sqlpass, sqldb := getCreds()
