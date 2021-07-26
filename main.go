@@ -20,12 +20,14 @@ func main() {
 		return
 	}
 
+	csv_records = []
 	csvpath := getEnvVar("CSV_PATH", "")
 	if csvpath != "" {
 		csv_records := readCsvFile(csvpath)
-		for _, entry := range csv_records {
-			log.Printf("CSV Row: %s", entry[0])
-		}
+	}
+
+	for _, entry := range csv_records {
+		log.Printf("CSV Row: %s", entry[0])
 	}
 
 	//Create a new LDAP Server
