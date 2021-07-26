@@ -20,10 +20,10 @@ func main() {
 		return
 	}
 
-	//csv_records := make([][]string , 1)
+	csv_records := make([][]string , 1)
 	csvpath := getEnvVar("CSV_PATH", "")
 	if csvpath != "" {
-		csv_records := readCsvFile(csvpath)
+		csv_records = readCsvFile(csvpath)
 	}
 
 	for _, entry := range csv_records {
