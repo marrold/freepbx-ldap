@@ -23,8 +23,11 @@ func main() {
 
 	csvpath := getEnvVar("CSV_PATH", "")
 	if csvpath != "" {
-		things := readCsvFile(csvpath)
-		fmt.Println(things)
+		csv_records := readCsvFile(csvpath)
+	}
+
+	for _, entry := range csv_records {
+		log.Printf("CSV Row: %d %s", _, entry)
 	}
 
 	//Create a new LDAP Server
@@ -213,6 +216,6 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 	for _, entry := range result {
 		e.AddAttribute("displayName", message.AttributeValue(entry.Name))
 		e.AddAttribute("telephoneNumber", message.AttributeValue(entry.Extension))
-		w.Write(e)
 	}
+	w.Write(e)
 }
