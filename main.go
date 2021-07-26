@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"fmt"
 
 	"github.com/vjeantet/goldap/message"
 	ldap "github.com/vjeantet/ldapserver"
@@ -18,6 +19,12 @@ func main() {
 	if err != nil {
 		log.Printf("DB ERROR: %s", err.Error())
 		return
+	}
+
+	csvpath := getEnvVar("CSV_PATH", "")
+	if csvpath != "" {
+		things := readCsvFile(csvpath)
+		fmt.Println(things)
 	}
 
 	//Create a new LDAP Server
