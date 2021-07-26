@@ -209,8 +209,8 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 		log.Printf("SQL ERROR: %s", err)
 	}
 
-	e := ldap.NewSearchResultEntry("")
 	for _, entry := range result {
+		e := ldap.NewSearchResultEntry("")
 		e.AddAttribute("displayName", message.AttributeValue(entry.Name))
 		e.AddAttribute("telephoneNumber", message.AttributeValue(entry.Extension))
 		w.Write(e)
