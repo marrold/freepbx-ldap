@@ -24,7 +24,7 @@ func main() {
 	if csvpath != "" {
 		csv_records := readCsvFile(csvpath)
 		for _, entry := range csv_records {
-			log.Printf("CSV Row: %s", entry)
+			log.Printf("CSV Row: %s", entry[0])
 		}
 	}
 
