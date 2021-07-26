@@ -10,6 +10,8 @@ import (
 	ldap "github.com/vjeantet/ldapserver"
 )
 
+csv_records := make([][]string , 1)
+
 func main() {
 	sqlserver, sqluser, sqlpass, sqldb := getCreds()
 	log.Printf("DB Connection: Server=%s User=%s DB=%s", sqlserver, sqluser, sqldb)
@@ -20,14 +22,9 @@ func main() {
 		return
 	}
 
-	csv_records := make([][]string , 1)
 	csvpath := getEnvVar("CSV_PATH", "")
 	if csvpath != "" {
 		csv_records = readCsvFile(csvpath)
-	}
-
-	for _, entry := range csv_records {
-		log.Printf("CSV Row: %s", entry[0])
 	}
 
 	//Create a new LDAP Server
