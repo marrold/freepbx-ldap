@@ -214,10 +214,10 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 	for _, entry := range result {
 		e.AddAttribute("displayName", message.AttributeValue(entry.Name))
 		e.AddAttribute("telephoneNumber", message.AttributeValue(entry.Extension))
+		w.Write(e)
 	}
 	//for _, row := range csv_records {
 	//	e.AddAttribute("displayName", message.AttributeValue(row[0]))
 	//	e.AddAttribute("telephoneNumber", message.AttributeValue(row[1]))
 	//}
-	w.Write(e)
 }
