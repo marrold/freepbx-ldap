@@ -10,7 +10,7 @@ import (
 	ldap "github.com/vjeantet/ldapserver"
 )
 
-var csv_records [][]string
+//var csv_records [][]string
 
 func main() {
 	sqlserver, sqluser, sqlpass, sqldb := getCreds()
@@ -23,7 +23,7 @@ func main() {
 	}
 
 	csvpath := getEnvVar("CSV_PATH", "")
-	csv_records = make([][]string , 99)
+	csv_records := make([][]string , 99)
 	if csvpath != "" {
 		csv_records = readCsvFile(csvpath)
 	}
@@ -215,9 +215,9 @@ func handleSearchDSE(w ldap.ResponseWriter, m *ldap.Message) {
 		e.AddAttribute("displayName", message.AttributeValue(entry.Name))
 		e.AddAttribute("telephoneNumber", message.AttributeValue(entry.Extension))
 	}
-	for _, row := range csv_records {
-		e.AddAttribute("displayName", message.AttributeValue(row[0]))
-		e.AddAttribute("telephoneNumber", message.AttributeValue(row[1]))
-	}
+	//for _, row := range csv_records {
+	//	e.AddAttribute("displayName", message.AttributeValue(row[0]))
+	//	e.AddAttribute("telephoneNumber", message.AttributeValue(row[1]))
+	//}
 	w.Write(e)
 }
