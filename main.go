@@ -22,7 +22,7 @@ func main() {
 		return
 	}
 
-	csvpath := getEnvVar("CSV_PATH", "")
+	//csvpath := getEnvVar("CSV_PATH", "")
 	//csv_records := make([][]string , 99)
 	//if csvpath != "" {
 	//	csv_records := readCsvFile(csvpath)
