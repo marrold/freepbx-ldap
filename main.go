@@ -5,7 +5,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"fmt"
 
 	"github.com/vjeantet/goldap/message"
 	ldap "github.com/vjeantet/ldapserver"
@@ -27,7 +26,7 @@ func main() {
 	}
 
 	for _, entry := range csv_records {
-		log.Printf("CSV Row: %d %s", _, entry)
+		log.Printf("CSV Row: %s", entry)
 	}
 
 	//Create a new LDAP Server
